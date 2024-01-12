@@ -4,16 +4,12 @@ using namespace std;
 
 int minimiseExpression(vector<int> &a, int n)
     {
-        unordered_set<int>st;
-        for(auto i:a)
-        st.insert(i);
-        
-        long long int sum=0;
-        for(auto j:st){
-            sum+=j;
+        long long sum=0;
+        for(int i=0;i<n;i++)    
+        {
+            sum+=a[i];
         }
-        long long int ans = (sum)/st.size();
-        return ans;
+        return sum/n;
 }
 
 int main(){
