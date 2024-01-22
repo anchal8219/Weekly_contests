@@ -1,0 +1,31 @@
+int minimumCost(vector<int>& nums) {
+        int n = nums.size();
+
+        int ans = nums[0], min1 = INT_MAX, min2 = INT_MAX;
+
+        for(int i=1; i<n; i++){
+            int curr = nums[i];
+
+            if(curr < min1){
+                min2 = min1;
+                min1 = curr;
+            }
+            else if(curr < min2){
+                min2 = curr;
+            } 
+        }
+
+        ans += min1 + min2;
+        return ans;
+    }
+
+
+  //or
+
+      int minimumCost(vector<int>& nums) {
+        int sm = nums[0];
+        sort(nums.begin()+1,nums.end());
+        sm+=nums[1]+nums[2];
+        
+        return sm;
+    }  
