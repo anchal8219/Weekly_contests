@@ -16,7 +16,16 @@ vector<string> split(const string &);
  */
 
 int sockMerchant(int n, vector<int> ar) {
-
+    unordered_map<int,int>m;
+    for(auto i:ar)
+        m[i]++;
+    int c=0;
+    for(auto j:m){
+      c+=(j.second)/2;
+      // else c+=j.second  
+        
+    }
+    return c;
 }
 
 int main()
