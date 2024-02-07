@@ -7,53 +7,53 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 /*
- * Complete the 'migratoryBirds' function below.
+ * Complete the 'birthdayCakeCandles' function below.
  *
  * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY arr as parameter.
+ * The function accepts INTEGER_ARRAY candles as parameter.
  */
 
-int migratoryBirds(vector<int> arr) {
-    unordered_map<int,int>m;
+int birthdayCakeCandles(vector<int> arr) {
+unordered_map<int,int>m;
     int mx=INT_MIN;
-    for(int i:arr){
+    for(auto i:arr){
         m[i]++;
-        mx = max(mx,m[i]);
+        mx = max(mx,i);
     }
-    
-    int mn=INT_MAX;
+    // cout<<mx<<endl;
+    int c=0;
     for(auto j:m){
-        if(j.second==mx){
-            mn = min(mn,j.first);
+        if(j.first==mx){
+            c=j.second;
         }
     }
-    return mn;
-
+    // return 00;
+    return c;
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    string arr_count_temp;
-    getline(cin, arr_count_temp);
+    string candles_count_temp;
+    getline(cin, candles_count_temp);
 
-    int arr_count = stoi(ltrim(rtrim(arr_count_temp)));
+    int candles_count = stoi(ltrim(rtrim(candles_count_temp)));
 
-    string arr_temp_temp;
-    getline(cin, arr_temp_temp);
+    string candles_temp_temp;
+    getline(cin, candles_temp_temp);
 
-    vector<string> arr_temp = split(rtrim(arr_temp_temp));
+    vector<string> candles_temp = split(rtrim(candles_temp_temp));
 
-    vector<int> arr(arr_count);
+    vector<int> candles(candles_count);
 
-    for (int i = 0; i < arr_count; i++) {
-        int arr_item = stoi(arr_temp[i]);
+    for (int i = 0; i < candles_count; i++) {
+        int candles_item = stoi(candles_temp[i]);
 
-        arr[i] = arr_item;
+        candles[i] = candles_item;
     }
 
-    int result = migratoryBirds(arr);
+    int result = birthdayCakeCandles(candles);
 
     fout << result << "\n";
 
