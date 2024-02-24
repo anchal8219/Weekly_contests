@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        int m=s.length(),n=t.length();
+        int i=0,j=0;
+        string res1="";
+        while(i<m){
+            if(s[i]=='#'){
+                if(res1!="")
+                res1.pop_back();
+            }
+            else res1+=s[i];
+            i++;
+        }
+        string res2="";
+        while(j<n){
+            if(t[j]=='#'){
+                if(res2!="")
+                res2.pop_back();
+            }
+            else res2+=t[j];
+            j++;
+        }
+    // cout<<res1<<" "<<res2;
+        return res1==res2;
+    }
+};
