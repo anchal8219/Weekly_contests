@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/pramo/Desktop/weekly_contests",
-      "program": "c:/Users/pramo/Desktop/weekly_contests/build/Debug/outDebug",
+      "cwd": "c:/Users/pramo/Desktop/weekly_contests/mountblue_challenge",
+      "program": "c:/Users/pramo/Desktop/weekly_contests/mountblue_challenge/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
