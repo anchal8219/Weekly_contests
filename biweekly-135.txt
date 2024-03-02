@@ -1,0 +1,66 @@
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        priority_queue<long long int, vector<long long int>, greater<long long int>> p(nums.begin(), nums.end());
+        
+//         long long int ct=0,a,b;
+//         while(p.size()>=2){
+//             if(p.top()<k){
+//             a = p.top();
+            
+//             p.pop();
+//             }
+//             else break;
+            
+//             if(p.top()<k){
+//             b = p.top();
+//             p.pop();}
+//             else break;
+            
+//             long long int c = min(a,b)*2 + max(a,b);
+//             p.push(c);
+//             ct++;
+            
+//         }
+        
+        
+        
+        
+        
+//         long long int ct=0;
+//         while(p.size()>=2){
+//             long long int a = p.top(); // Access top element
+//             p.pop(); // Remove top element
+            
+//             long long int b = p.top(); // Access top element
+//             p.pop(); // Remove top element
+            
+//             if (a < k || b < k) {
+//                 long long int c = min(a,b)*2 + max(a,b);
+//                 p.push(c);
+//                 ct++;
+//             } else {
+//                 break; // No need to continue if both a and b are greater than or equal to k
+//             }
+//         }
+        
+        long long int ct = 0;
+        while (!p.empty() && p.top() < k) {
+            if (p.size() < 2) {
+                return -1; // Not enough elements to perform the operation
+            }
+            
+            long long int a = p.top(); // Access top element
+            p.pop(); // Remove top element
+            
+            long long int b = p.top(); // Access top element
+            p.pop(); // Remove top element
+            
+            long long int c = min(a,b)*2 + max(a,b);
+            p.push(c);
+            ct++;
+        }
+        return ct;
+        
+    }
+};
