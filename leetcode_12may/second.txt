@@ -11,4 +11,17 @@ public:
         }
         return mx;
     }
+
+    //or by using dp
+    int maximumEnergy(vector<int>& e, int k){
+        int n=e.size(),mx=INT_MIN;
+        vector<int>dp(n);
+        for(int i=n-1;i>=0;i--){
+            dp[i]=e[i];
+            if(i+k<n)
+            dp[i]+=dp[i+k];
+            mx = max(mx,dp[i]);
+        }
+        return mx;
+    }
 };
