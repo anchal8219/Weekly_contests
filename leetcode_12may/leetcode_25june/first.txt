@@ -1,0 +1,26 @@
+double minimumAverage(vector<int>& nums) {
+        // Step 1: Sort the nums array to easily find the smallest and largest elements
+        sort(nums.begin(), nums.end());
+
+        vector<double> averages;
+        int left = 0;
+        int right = nums.size() - 1;
+
+        // Step 2: Perform the operation n / 2 times
+        while (left < right) {
+            int minElement = nums[left];
+            int maxElement = nums[right];
+            double average = (minElement + maxElement) / 2.0;
+            averages.push_back(average);
+            left++;
+            right--;
+        }
+
+        // Step 3: Find the minimum element in averages
+        double mn = numeric_limits<double>::max();
+        for (double avg : averages) {
+            mn = min(mn, avg);
+        }
+
+        return mn;
+    }
