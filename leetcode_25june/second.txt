@@ -1,5 +1,6 @@
 class Solution {
 public:
+
     int minimumArea(vector<vector<int>>& v) {
         int n=v.size();
         int m=v[0].size();
