@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool reportSpam(vector<string>& m, vector<string>& b) {
+        unordered_map<string,int>mp;
+        for(int i=0;i<b.size();i++)
+        mp[b[i]]=i;
+        int c=0;
+
+        for(string j:m){
+            if(mp.find(j)!=mp.end())
+            c++;
+        }
+
+        if(c>=2) return true;
+        else return false;
+    }
+};
